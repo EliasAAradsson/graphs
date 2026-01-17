@@ -1,5 +1,7 @@
 typedef struct {
+    char* fromNode;
     int cost;
+    char* toNode;
 } edge_t;
 
 typedef struct {

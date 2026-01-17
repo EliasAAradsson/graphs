@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c2x
-TARGET = main
+TARGET = dijkstra.out
 OBJS = heap.o main.o
 
 all: $(TARGET)
