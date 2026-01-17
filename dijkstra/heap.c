@@ -1,15 +1,7 @@
+#include "heap.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef struct {
-    int cost;
-} edge_t;
-
-typedef struct {
-    edge_t *edges;
-    int size;
-    int capacity;
-} pq_t;
 
 /**
  * Create a new priority queue
@@ -118,22 +110,4 @@ int pq_size(pq_t *pq) {
 void pq_destroy(pq_t *pq) {
     free(pq->edges);
     free(pq);
-}
-
-// Example
-int main() {
-    pq_t *pq = pq_create(10);
-    
-    pq_push(pq, (edge_t){.cost = 5});
-    pq_push(pq, (edge_t){.cost = 2});
-    pq_push(pq, (edge_t){.cost = 8});
-    pq_push(pq, (edge_t){.cost = 1});
-    
-    while (!pq_is_empty(pq)) {
-        edge_t e = pq_pop(pq);
-        printf("Cost: %d\n", e.cost);
-    }
-    
-    pq_destroy(pq);
-    return 0;
 }
