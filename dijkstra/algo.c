@@ -65,10 +65,13 @@ Graph* createGraph(int V) {
 
 // Set name for a vertex
 void setVertexName(Graph* graph, int v, const char* name) {
-    if (v >= 0 && v < graph->V) {
-        strncpy(graph->names[v], name, MAX_NAME_LEN - 1);
-        graph->names[v][MAX_NAME_LEN - 1] = '\0';
+    for (int i = 0; i < v; i++) {
+        if (strncmp(graph->names[i], name, MAX_NAME_LEN - 1) == 0) {
+            return;
+        }
     }
+    strncpy(graph->names[v], name, MAX_NAME_LEN - 1);
+    graph->names[v][MAX_NAME_LEN - 1] = '\0';
 }
 
 // Find vertex index by name
